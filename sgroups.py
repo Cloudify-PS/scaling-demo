@@ -17,7 +17,8 @@ client = CloudifyClient(host=args.manager_ip,
                         password=args.password,
                         tenant=tenant_id,
                         trust_all=True)
-node_instances = client.node_instances.list(deployment_id=args.deployment_id)
+node_instances = client.node_instances.list(deployment_id=args.deployment_id,
+                                            _include=['id', 'scaling_groups'])
 
 result = dict()
 
